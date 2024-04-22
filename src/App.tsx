@@ -1,5 +1,6 @@
 import ListGroup from "./components/ListGroup";
 import { useState } from "react";
+import './App.css'
 
 function App() {
   let items = ["New York", "Los Angeles", "San Francisco"];

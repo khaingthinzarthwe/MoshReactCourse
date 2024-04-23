@@ -1,9 +1,9 @@
-import { IoCalendar } from "react-icons/io5";
+import Button from "./components/Button/Button";
 
 function App() {
   return (
     <div>
-      <IoCalendar color="red" size={40}/>
+      <Button onClick={() => {}}>My Button</Button>
     </div>
   );
 }

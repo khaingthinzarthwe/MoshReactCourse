@@ -1,16 +1,9 @@
-import ListGroup from "./components/ListGroup";
-import { useState } from "react";
+import { IoCalendar } from "react-icons/io5";
 
 function App() {
-  let items = ["New York", "Los Angeles", "San Francisco"];
-  const [alertVisible, setAlertVisibility] = useState(false);
   return (
     <div>
-      <ListGroup
-        items={items}
-        heading="Miami"
-        onSelectItem={(item: string) => console.log(item)}
-      />
+      <IoCalendar color="red" size={40}/>
     </div>
   );
 }

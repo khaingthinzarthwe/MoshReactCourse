@@ -1,18 +1,21 @@
 import { useState } from "react";
 
 function App() {
-  // const [firstName, setFirstName] = useState('');
-  // const [lastName, setLastName] = useState('');
-  // const fullName = firstName + ' ' + lastName;
-  const [person, setPerson] = useState({
-    firstName: '',
-    lastName: '',
-  })
-  const [loading, setLoading] = useState(false);
-  
+  const [game, setGame] = useState({
+    id: 1,
+    player: {
+      name: "Ye",
+    },
+  });
+
+  const handleClick = () => {
+    setGame({ ...game, player: { ...game.player, name: "yoh" } });
+    console.log(game);
+  };
+
   return (
     <div>
-      {/* {firstName} {lastName} */}
+      <button onClick={handleClick}>Game</button>
     </div>
   );
 }

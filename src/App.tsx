@@ -1,20 +1,18 @@
 import { useState } from "react";
 
 function App() {
-  //[false, true]
-  const [isVisible, setVisibility] = useState(false);
-  const [isApproved, setApproved] = useState(true);
-  // let count = 0;
-
-  const handleClick = () => {
-    setVisibility(true);
-    // setName('Yoh');
-    // count++;
-    console.log(isVisible);
-  };
+  // const [firstName, setFirstName] = useState('');
+  // const [lastName, setLastName] = useState('');
+  // const fullName = firstName + ' ' + lastName;
+  const [person, setPerson] = useState({
+    firstName: '',
+    lastName: '',
+  })
+  const [loading, setLoading] = useState(false);
+  
   return (
     <div>
-      <button onClick={handleClick}>Show</button>
+      {/* {firstName} {lastName} */}
     </div>
   );
 }

@@ -1,9 +1,11 @@
-//PascalCasing
-function Message(){
-  //JSX: JavaScript XML
-  const name = 'Yoh';
-  if (name)
-    return <h1>Hello {name}</h1>;
-  return <h1>Hello World</h1>
+import React from 'react'
+let count =0;
+const Message = () => {
+  
+  count++;
+  return (
+    <div>Message {count}</div>
+  )
 }
-export default Message;
+
+export default Message

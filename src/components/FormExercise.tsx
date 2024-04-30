@@ -1,9 +1,20 @@
-import React, { FormEvent } from "react";
+import React, { FormEvent, useRef } from "react";
 
 const FormExercise = () => {
+    const descriptionRef = useRef<HTMLInputElement>(null);
+    const amountRef = useRef<HTMLInputElement>(null);
+    const categoryRef =  useRef<HTMLSelectElement>(null);
+    const item = { description: '', amount: 0, category: '' }
+
     const handleSubmit = (event: FormEvent) => {
         event.preventDefault();
-        console.log("Submitted");
+        if (descriptionRef.current !== null)
+            item.description = descriptionRef.current.value;
+        if (amountRef.current !== null)
+            item.amount =  parseInt(amountRef.current.value);
+        if (categoryRef.current !== null)
+            item.category = categoryRef.current.value;
+        console.log(item);
     }
 
   return (
@@ -12,19 +23,19 @@ const FormExercise = () => {
         <label htmlFor="desc" className="form-label">
           Description
         </label>
-        <input id="desc" type="text" className="form-control" />
+        <input ref={descriptionRef} id="desc" type="text" className="form-control" />
       </div>
       <div className="mb-3">
         <label htmlFor="amt" className="form-label">
           Amount
         </label>
-        <input id="amt" type="number" className="form-control" />
+        <input ref={amountRef} id="amt" type="number" className="form-control" />
       </div>
       <div className="mb-3">
         <label htmlFor="ctg" className="form-label">
           Category
         </label>
-        <select className="form-control" id="ctg">
+        <select ref={categoryRef} className="form-control" id="ctg">
           <option></option>
           <option>Groceries</option>
           <option>Utilities</option>

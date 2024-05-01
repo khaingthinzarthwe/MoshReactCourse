@@ -1,41 +1,39 @@
 import React, { FormEvent, useRef } from "react";
+import { FieldValues, useForm } from "react-hook-form";
 
 const FormExercise = () => {
-    const descriptionRef = useRef<HTMLInputElement>(null);
-    const amountRef = useRef<HTMLInputElement>(null);
-    const categoryRef =  useRef<HTMLSelectElement>(null);
-    const item = { description: '', amount: 0, category: '' }
-
-    const handleSubmit = (event: FormEvent) => {
-        event.preventDefault();
-        if (descriptionRef.current !== null)
-            item.description = descriptionRef.current.value;
-        if (amountRef.current !== null)
-            item.amount =  parseInt(amountRef.current.value);
-        if (categoryRef.current !== null)
-            item.category = categoryRef.current.value;
-        console.log(item);
-    }
+  const { register, handleSubmit } = useForm();
+  const onSubmit = (data: FieldValues) => console.log(data);
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit(onSubmit)}>
       <div className="mb-3">
         <label htmlFor="desc" className="form-label">
           Description
         </label>
-        <input ref={descriptionRef} id="desc" type="text" className="form-control" />
+        <input
+          {...register("description")}
+          id="desc"
+          type="text"
+          className="form-control"
+        />
       </div>
       <div className="mb-3">
         <label htmlFor="amt" className="form-label">
           Amount
         </label>
-        <input ref={amountRef} id="amt" type="number" className="form-control" />
+        <input
+          {...register("amount")}
+          id="amt"
+          type="number"
+          className="form-control"
+        />
       </div>
       <div className="mb-3">
         <label htmlFor="ctg" className="form-label">
           Category
         </label>
-        <select ref={categoryRef} className="form-control" id="ctg">
+        <select {...register("category")} className="form-control" id="ctg">
           <option></option>
           <option>Groceries</option>
           <option>Utilities</option>
